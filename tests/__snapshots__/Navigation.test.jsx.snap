@@ -1,0 +1,32 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Navigation component tests > renders navigation links 1`] = `
+<div>
+  <nav
+    class="_root_b30331"
+  >
+    <a
+      aria-current="page"
+      class="active"
+      data-discover="true"
+      href="/"
+    >
+      Home
+    </a>
+    <a
+      class=""
+      data-discover="true"
+      href="/shop"
+    >
+      Shop
+    </a>
+    <a
+      class=""
+      data-discover="true"
+      href="/cart"
+    >
+      Your cart
+    </a>
+  </nav>
+</div>
+`;
