@@ -46,7 +46,7 @@ describe("Item Card component tests", () => {
     return {
       title: "Fake Item",
       description: "Fake Item description",
-      imageUrl: "www.google.com",
+      image: "www.google.com",
     };
   }
 });

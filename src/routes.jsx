@@ -1,4 +1,5 @@
 import App from "./App";
+import Shop from "./components/Shop";
 
 const routes = [
   {
@@ -11,7 +12,7 @@ const routes = [
       },
       {
         path: "/shop",
-        element: <h2>Shop</h2>,
+        element: <Shop></Shop>,
       },
       {
         path: "/cart",

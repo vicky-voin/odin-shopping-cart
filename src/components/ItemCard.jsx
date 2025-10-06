@@ -1,18 +1,21 @@
 import useProductData from "../hooks/useProductData";
+import styles from "./ItemCard.module.css";
 
 export default function ItemCard({ itemId }) {
   const { data, isError } = useProductData(itemId);
 
   return (
-    <div>
+    <div className={styles.cardRoot}>
       {data !== null && (
-        <div>
-          <div>{data.title}</div>
-          <div>{data.description}</div>
-          <img src={data.imageUrl}></img>
+        <div className={styles.contentRoot}>
+          <h2 className={styles.title}>{data.title}</h2>
+          <p className={styles.description}>{data.description}</p>
+          <img className={styles.productImage} src={data.image}></img>
         </div>
       )}
-      {isError && <div>Error: could not load item</div>}
+      {isError && (
+        <div className={styles.errorContent}>Error: could not load item</div>
+      )}
     </div>
   );
 }

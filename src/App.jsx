@@ -3,11 +3,18 @@ import "./App.css";
 import Navigation from "./components/Navigation";
 
 function App() {
+  const productIds = [1, 2];
+  const cartData = {
+    products: [],
+  };
+
+  const shopContext = { productIds, cartData };
+
   return (
     <>
       <h1>My awesome shop</h1>
       <Navigation></Navigation>
-      <Outlet></Outlet>
+      <Outlet context={shopContext}></Outlet>
     </>
   );
 }
