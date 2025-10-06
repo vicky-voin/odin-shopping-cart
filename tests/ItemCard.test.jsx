@@ -1,0 +1,52 @@
+import { vi, describe, it, expect, afterEach } from "vitest";
+import { screen, render } from "@testing-library/react";
+import ItemCard from "../src/components/ItemCard";
+
+describe("Item Card component tests", () => {
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it("renders an empty card when no data provided", () => {
+    const { container } = render(<ItemCard></ItemCard>);
+    expect(container).toMatchSnapshot();
+  });
+
+  it("fills out the item fields correctly", async () => {
+    const data = getFakeData();
+    globalThis.fetch = vi.fn(() =>
+      Promise.resolve({
+        ok: true,
+        json: () => data,
+      })
+    );
+
+    render(<ItemCard></ItemCard>);
+
+    await screen.findByText(data.title);
+    await screen.findByText(data.description);
+    const img = await screen.findByRole("img");
+    expect(img).toHaveAttribute("src", data.imageUrl);
+  });
+
+  it("renders error message in card on error", async () => {
+    globalThis.fetch = vi.fn(() =>
+      Promise.resolve({
+        ok: false,
+        json: () => "Server error: could not fetch item",
+      })
+    );
+
+    render(<ItemCard></ItemCard>);
+
+    await screen.findByText("Error: could not load item");
+  });
+
+  function getFakeData() {
+    return {
+      title: "Fake Item",
+      description: "Fake Item description",
+      imageUrl: "www.google.com",
+    };
+  }
+});

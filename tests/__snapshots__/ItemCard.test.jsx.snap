@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Item Card component tests > renders a default card 1`] = `
+<div>
+  <div />
+</div>
+`;
+
+exports[`Item Card component tests > renders an empty card when no data provided 1`] = `
+<div>
+  <div />
+</div>
+`;
