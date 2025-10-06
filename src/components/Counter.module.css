@@ -1,0 +1,12 @@
+.inputValue {
+  width: 3ch;
+  margin: 0 6px;
+  text-align: right;
+  appearance: textfield;
+}
+
+.inputValue::-webkit-outer-spin-button,
+.inputValue::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

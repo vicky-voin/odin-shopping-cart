@@ -30,9 +30,14 @@
   margin: 0;
 }
 
+.counter {
+  grid-column: 2/3;
+  margin: 0;
+}
+
 .productImage {
   grid-column: 1/2;
-  grid-row: 1/3;
+  grid-row: 1/4;
   max-height: 200px;
   max-width: auto;
 }

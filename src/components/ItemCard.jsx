@@ -1,4 +1,5 @@
 import useProductData from "../hooks/useProductData";
+import Counter from "./Counter";
 import styles from "./ItemCard.module.css";
 
 export default function ItemCard({ itemId }) {
@@ -10,6 +11,9 @@ export default function ItemCard({ itemId }) {
         <div className={styles.contentRoot}>
           <h2 className={styles.title}>{data.title}</h2>
           <p className={styles.description}>{data.description}</p>
+          <div className={styles.counter}>
+            <Counter></Counter>
+          </div>
           <img className={styles.productImage} src={data.image}></img>
         </div>
       )}

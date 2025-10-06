@@ -1,0 +1,18 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Counter component tests > renders a counter with the default value 0 1`] = `
+<div>
+  <div>
+    <button>
+      +
+    </button>
+    <input
+      type="number"
+      value="0"
+    />
+    <button>
+      -
+    </button>
+  </div>
+</div>
+`;
