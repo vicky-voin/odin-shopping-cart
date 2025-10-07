@@ -5,6 +5,10 @@ import styles from "./ItemCard.module.css";
 export default function ItemCard({ itemId }) {
   const { data, isError } = useProductData(itemId);
 
+  function handleCounterChange() {
+    //TODO: implement
+  }
+
   return (
     <div className={styles.cardRoot}>
       {data !== null && (
@@ -12,7 +16,7 @@ export default function ItemCard({ itemId }) {
           <h2 className={styles.title}>{data.title}</h2>
           <p className={styles.description}>{data.description}</p>
           <div className={styles.counter}>
-            <Counter></Counter>
+            <Counter onValueChanged={() => handleCounterChange}></Counter>
           </div>
           <img className={styles.productImage} src={data.image}></img>
         </div>

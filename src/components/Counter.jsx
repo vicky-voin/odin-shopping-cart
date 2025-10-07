@@ -1,20 +1,31 @@
 import { useState, useRef } from "react";
 import styles from "./Counter.module.css";
 
-export default function Counter({ initialCount = 0 }) {
+export default function Counter({ onValueChanged, initialCount = 0 }) {
   const [count, setCount] = useState(initialCount);
   const prevValidCount = useRef(initialCount);
 
   function incrementCount() {
     setCount((prev) => {
-      prevValidCount.current = prev + 1;
-      return prev + 1;
+      const newCount = prev + 1;
+
+      if (prevValidCount.prev !== prevValidCount.current) {
+        onValueChanged(newCount);
+      }
+
+      prevValidCount.current = newCount;
+      return newCount;
     });
   }
 
   function decrementCount() {
     setCount((prev) => {
       const newCount = Math.max(prev - 1, 0);
+
+      if (prevValidCount.current !== newCount) {
+        onValueChanged(newCount);
+      }
+
       prevValidCount.current = newCount;
       return newCount;
     });
@@ -23,10 +34,8 @@ export default function Counter({ initialCount = 0 }) {
   function handleInputChange(event) {
     const value = event.target.value;
     if (/^\d*$/.test(value)) {
-      setCount(value === "" ? "" : Number(value));
-      if (value !== "") {
-        prevValidCount.current = Number(value);
-      }
+      const newCount = value === "" ? "" : Number(value);
+      setCount(newCount);
     }
   }
 
@@ -43,26 +52,28 @@ export default function Counter({ initialCount = 0 }) {
   }
 
   function handleBlur() {
-    // If count is empty or not a valid number, reset to previous valid count
     if (count === "" || isNaN(count)) {
       setCount(prevValidCount.current);
+    } else {
+      if (prevValidCount.current !== count) {
+        onValueChanged(count);
+        prevValidCount.current = count;
+      }
     }
   }
 
   return (
-    <>
-      <div>
-        <button onClick={decrementCount}>-</button>
-        <input
-          className={styles.inputValue}
-          type="number"
-          value={count}
-          onChange={handleInputChange}
-          onKeyDown={handleKeyDown}
-          onBlur={handleBlur}
-        />
-        <button onClick={incrementCount}>+</button>
-      </div>
-    </>
+    <div>
+      <button onClick={decrementCount}>-</button>
+      <input
+        className={styles.inputValue}
+        type="number"
+        value={count}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
+        onBlur={handleBlur}
+      />
+      <button onClick={incrementCount}>+</button>
+    </div>
   );
 }
