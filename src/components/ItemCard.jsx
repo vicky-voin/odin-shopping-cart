@@ -2,11 +2,11 @@ import useProductData from "../hooks/useProductData";
 import Counter from "./Counter";
 import styles from "./ItemCard.module.css";
 
-export default function ItemCard({ itemId }) {
+export default function ItemCard({ itemId, onCountUpdated }) {
   const { data, isError } = useProductData(itemId);
 
-  function handleCounterChange() {
-    //TODO: implement
+  function handleCounterChange(value) {
+    onCountUpdated(value);
   }
 
   return (
@@ -16,7 +16,9 @@ export default function ItemCard({ itemId }) {
           <h2 className={styles.title}>{data.title}</h2>
           <p className={styles.description}>{data.description}</p>
           <div className={styles.counter}>
-            <Counter onValueChanged={() => handleCounterChange}></Counter>
+            <Counter
+              onValueChanged={(value) => handleCounterChange(value)}
+            ></Counter>
           </div>
           <img className={styles.productImage} src={data.image}></img>
         </div>

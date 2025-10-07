@@ -7,7 +7,7 @@ describe("Navigation component tests", () => {
   it("renders navigation links", () => {
     const { container } = render(
       <MemoryRouter>
-        <Navigation></Navigation>
+        <Navigation cartData={[]}></Navigation>
       </MemoryRouter>
     );
     expect(container).toMatchSnapshot();

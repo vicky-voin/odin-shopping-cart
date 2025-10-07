@@ -7,9 +7,11 @@
 .contentRoot {
   display: grid;
   grid-template-rows: minmax(1rem, max-content);
+  grid-template-columns: 200px auto;
   gap: 18px;
   padding: 12px;
   text-align: left;
+  min-height: 200px;
 }
 
 .errorContent {
@@ -39,5 +41,6 @@
   grid-column: 1/2;
   grid-row: 1/4;
   max-height: 200px;
-  max-width: auto;
+  width: 200px;
+  object-fit: contain;
 }
