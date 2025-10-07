@@ -4,14 +4,15 @@ exports[`Counter component tests > renders a counter with the default value 0 1`
 <div>
   <div>
     <button>
-      +
+      -
     </button>
     <input
+      class="_inputValue_4a361d"
       type="number"
       value="0"
     />
     <button>
-      -
+      +
     </button>
   </div>
 </div>
