@@ -1,9 +1,9 @@
-import useProductData from "../hooks/useProductData";
+import { useFetchProduct } from "../hooks/fetchProductData";
 import Counter from "./Counter";
 import styles from "./ItemCard.module.css";
 
 export default function ItemCard({ itemId, onCountUpdated }) {
-  const { data, isError } = useProductData(itemId);
+  const { data, isError } = useFetchProduct(itemId);
 
   function handleCounterChange(value) {
     onCountUpdated(value);
@@ -15,6 +15,7 @@ export default function ItemCard({ itemId, onCountUpdated }) {
         <div className={styles.contentRoot}>
           <h2 className={styles.title}>{data.title}</h2>
           <p className={styles.description}>{data.description}</p>
+          <p className={styles.price}>{data.price}</p>
           <div className={styles.counter}>
             <Counter
               onValueChanged={(value) => handleCounterChange(value)}

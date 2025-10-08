@@ -6,29 +6,16 @@ export default function Counter({ onValueChanged, initialCount = 0 }) {
   const prevValidCount = useRef(initialCount);
 
   function incrementCount() {
-    setCount((prev) => {
-      const newCount = prev + 1;
-
-      if (prevValidCount.prev !== prevValidCount.current) {
-        onValueChanged(newCount);
-      }
-
-      prevValidCount.current = newCount;
-      return newCount;
-    });
+    const newCount = count + 1;
+    setCount(newCount);
+    onValueChanged(newCount);
   }
 
   function decrementCount() {
-    setCount((prev) => {
-      const newCount = Math.max(prev - 1, 0);
-
-      if (prevValidCount.current !== newCount) {
-        onValueChanged(newCount);
-      }
-
-      prevValidCount.current = newCount;
-      return newCount;
-    });
+    if (count === 0) return;
+    const newCount = count - 1;
+    setCount(newCount);
+    onValueChanged(newCount);
   }
 
   function handleInputChange(event) {

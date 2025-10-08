@@ -25,6 +25,7 @@ describe("Item Card component tests", () => {
 
     await screen.findByText(data.title);
     await screen.findByText(data.description);
+    await screen.findByText(data.price);
     const img = await screen.findByRole("img");
     expect(img).toHaveAttribute("src", data.imageUrl);
   });
@@ -47,6 +48,7 @@ describe("Item Card component tests", () => {
       title: "Fake Item",
       description: "Fake Item description",
       image: "www.google.com",
+      price: "120.5",
     };
   }
 });

@@ -1,0 +1,40 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Price summary tests > renders 0 for prices if no items passed in 1`] = `
+<div>
+  <div>
+    <div>
+      Subtotal
+    </div>
+    <div
+      data-testid="subtotalValue"
+    >
+      $0.00
+    </div>
+    <div>
+      Shipping
+    </div>
+    <div
+      data-testid="shippingValue"
+    >
+      $0.00
+    </div>
+    <div>
+      Tax
+    </div>
+    <div
+      data-testid="taxValue"
+    >
+      $0.00
+    </div>
+    <div>
+      Order total
+    </div>
+    <div
+      data-testid="totalValue"
+    >
+      $0.00
+    </div>
+  </div>
+</div>
+`;
