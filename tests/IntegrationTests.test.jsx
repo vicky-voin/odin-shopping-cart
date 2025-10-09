@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { screen, render, getByTestId } from "@testing-library/react";
+import { screen, render, waitFor } from "@testing-library/react";
 import { createMemoryRouter, RouterProvider } from "react-router";
 import routes from "../src/routes";
 import userEvent from "@testing-library/user-event";
@@ -68,5 +68,37 @@ describe("Cart integration", () => {
     const cartCount = screen.getByTestId("cartTotalCount");
 
     expect(cartCount).toHaveTextContent("1");
+  });
+
+  it("Cart displays correct items and quantities", async () => {
+    const router = createMemoryRouter(routes);
+
+    render(<RouterProvider router={router}></RouterProvider>);
+
+    //Navigating to the store and added two items to the cart
+    const shopButton = screen.getByTestId("shopNavLink");
+    const user = userEvent.setup();
+    await user.click(shopButton);
+    let incrementButtons = [];
+
+    await waitFor(async () => {
+      incrementButtons = await screen.findAllByRole("button", {
+        name: "+",
+      });
+      expect(incrementButtons.length).toBeGreaterThan(2);
+    });
+
+    await user.click(incrementButtons[0]);
+    await user.click(incrementButtons[1]);
+
+    //Navigating to the Cart and checking the counts
+    const cartButton = screen.getByTestId("cartNavLink");
+    await user.click(cartButton);
+
+    await waitFor(async () => {
+      const counters = await screen.findAllByRole("spinbutton");
+      expect(counters.length).toBe(2);
+      counters.forEach((counter) => expect(counter).toHaveValue(1));
+    });
   });
 });

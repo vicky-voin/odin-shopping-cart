@@ -2,20 +2,43 @@ import { useOutletContext } from "react-router";
 import styles from "./Cart.module.css";
 import PriceSummary from "./PriceSummary";
 import { useFetchAllProducts } from "../hooks/fetchProductData";
+import ItemCard from "./ItemCard";
 
 export default function Cart() {
-  const { shopData } = useOutletContext();
+  const { shopData, handleCartUpdated } = useOutletContext();
 
   const products = useFetchAllProducts(shopData.productIds);
 
-  const subtotal = shopData.cartData.reduce((acc, item) => {
-    const productData = products.find((x) => x.id === item.id);
-    const price = productData != null ? productData.price : 0;
-    return acc + item.quantity * price;
+  const productsInCart = shopData.cartData
+    .map((item) => {
+      const product = products.find((p) => p.id === item.id);
+      if (product) {
+        return { ...product, quantity: item.quantity };
+      }
+      return null;
+    })
+    .filter((item) => item !== null);
+
+  const subtotal = productsInCart.reduce((acc, item) => {
+    return acc + item.quantity * item.price;
   }, 0.0);
+
+  const items = productsInCart.map((product) => {
+    return (
+      <ItemCard
+        key={product.id}
+        itemId={product.id}
+        onCountUpdated={(id, count) => {
+          handleCartUpdated(id, count);
+        }}
+        initialCount={product.quantity}
+      ></ItemCard>
+    );
+  });
 
   return (
     <>
+      <div>{items}</div>
       <PriceSummary subtotal={subtotal}></PriceSummary>
     </>
   );

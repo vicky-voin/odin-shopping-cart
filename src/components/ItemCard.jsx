@@ -2,11 +2,11 @@ import { useFetchProduct } from "../hooks/fetchProductData";
 import Counter from "./Counter";
 import styles from "./ItemCard.module.css";
 
-export default function ItemCard({ itemId, onCountUpdated }) {
+export default function ItemCard({ itemId, onCountUpdated, initialCount = 0 }) {
   const { data, isError } = useFetchProduct(itemId);
 
   function handleCounterChange(value) {
-    onCountUpdated(value);
+    onCountUpdated(itemId, value);
   }
 
   return (
@@ -19,6 +19,7 @@ export default function ItemCard({ itemId, onCountUpdated }) {
           <div className={styles.counter}>
             <Counter
               onValueChanged={(value) => handleCounterChange(value)}
+              initialCount={initialCount}
             ></Counter>
           </div>
           <img className={styles.productImage} src={data.image}></img>
