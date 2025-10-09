@@ -1,6 +1,7 @@
 import { Outlet } from "react-router";
 import "./App.css";
 import Navigation from "./components/Navigation";
+import Logo from "./components/Logo";
 import { useState } from "react";
 
 function App() {
@@ -31,8 +32,10 @@ function App() {
 
   return (
     <>
-      <h1>My awesome shop</h1>
-      <Navigation cartData={cartData}></Navigation>
+      <div className="header">
+        <Logo></Logo>
+        <Navigation cartData={cartData}></Navigation>
+      </div>
       <Outlet context={shopContext}></Outlet>
     </>
   );

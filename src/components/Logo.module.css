@@ -1,0 +1,21 @@
+.logoRoot {
+  text-align: left;
+  line-height: 1;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(3, auto);
+  column-gap: 12px;
+}
+
+.logoText {
+  grid-column: 1 / 2;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.logoImage {
+  grid-column: 2 / 3;
+  grid-row: 1 / 4;
+  align-self: center;
+}
