@@ -1,6 +1,7 @@
 import { vi, describe, it, expect, afterEach } from "vitest";
 import { screen, render } from "@testing-library/react";
 import ItemCard from "../src/components/ItemCard";
+import formatInUSD from "../src/utils/priceConverter";
 
 describe("Item Card component tests", () => {
   afterEach(() => {
@@ -23,9 +24,11 @@ describe("Item Card component tests", () => {
 
     render(<ItemCard></ItemCard>);
 
+    const formattedPrice = formatInUSD(data.price);
+
     await screen.findByText(data.title);
     await screen.findByText(data.description);
-    await screen.findByText(data.price);
+    await screen.findByText(formattedPrice);
     const img = await screen.findByRole("img");
     expect(img).toHaveAttribute("src", data.imageUrl);
   });

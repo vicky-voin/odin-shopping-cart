@@ -7,7 +7,7 @@ exports[`Navigation component tests > renders navigation links 1`] = `
   >
     <a
       aria-current="page"
-      class="active"
+      class="_navButton_b30331 _active_b30331"
       data-discover="true"
       data-testid="homeNavLink"
       href="/"
@@ -15,7 +15,7 @@ exports[`Navigation component tests > renders navigation links 1`] = `
       Home
     </a>
     <a
-      class=""
+      class="_navButton_b30331"
       data-discover="true"
       data-testid="shopNavLink"
       href="/shop"
@@ -23,7 +23,7 @@ exports[`Navigation component tests > renders navigation links 1`] = `
       Shop
     </a>
     <a
-      class=""
+      class="_navButton_b30331"
       data-discover="true"
       data-testid="cartNavLink"
       href="/cart"

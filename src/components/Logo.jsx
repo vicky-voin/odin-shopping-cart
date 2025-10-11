@@ -8,7 +8,7 @@ export default function Logo() {
       <div className={styles.logoText}>thing</div>
       <div className={styles.logoText}>shop.</div>
       <div className={styles.logoImage}>
-        <Handbag size={52}></Handbag>
+        <Handbag size={48}></Handbag>
       </div>
     </div>
   );

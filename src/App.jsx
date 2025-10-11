@@ -1,5 +1,7 @@
 import { Outlet } from "react-router";
 import "./App.css";
+import "./common.css";
+import "./defaultTheme.css";
 import Navigation from "./components/Navigation";
 import Logo from "./components/Logo";
 import { useState } from "react";

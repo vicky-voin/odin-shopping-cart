@@ -1,6 +1,18 @@
 .root {
   display: flex;
-  gap: 24px;
-  background-color: white;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  gap: 64px;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.navButton {
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-900);
+  text-decoration: none;
+}
+
+.active {
+  color: var(--color-300);
 }

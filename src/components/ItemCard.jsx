@@ -1,9 +1,11 @@
 import { useFetchProduct } from "../hooks/fetchProductData";
+import formatInUSD from "../utils/priceConverter";
 import Counter from "./Counter";
 import styles from "./ItemCard.module.css";
 
 export default function ItemCard({ itemId, onCountUpdated, initialCount = 0 }) {
   const { data, isError } = useFetchProduct(itemId);
+  const formattedPrice = formatInUSD(data == null ? "0.0" : data.price);
 
   function handleCounterChange(value) {
     onCountUpdated(itemId, value);
@@ -15,7 +17,7 @@ export default function ItemCard({ itemId, onCountUpdated, initialCount = 0 }) {
         <div className={styles.contentRoot}>
           <h2 className={styles.title}>{data.title}</h2>
           <p className={styles.description}>{data.description}</p>
-          <p className={styles.price}>{data.price}</p>
+          <h3 className={styles.price}>{formattedPrice}</h3>
           <div className={styles.counter}>
             <Counter
               onValueChanged={(value) => handleCounterChange(value)}

@@ -10,6 +10,7 @@ describe("Navigation component tests", () => {
         <Navigation cartData={[]}></Navigation>
       </MemoryRouter>
     );
+
     expect(container).toMatchSnapshot();
   });
 });
