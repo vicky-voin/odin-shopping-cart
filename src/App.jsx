@@ -38,7 +38,12 @@ function App() {
         <Logo></Logo>
         <Navigation cartData={cartData}></Navigation>
       </div>
-      <Outlet context={shopContext}></Outlet>
+      <div className="content">
+        <Outlet context={shopContext}></Outlet>
+      </div>
+      <footer>
+        <span>Images provided by Lucide, FakeStoreAPI</span>
+      </footer>
     </>
   );
 }
