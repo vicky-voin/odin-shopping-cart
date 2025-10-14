@@ -1,0 +1,37 @@
+.homeRoot {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoRoot {
+  margin-top: 48px;
+  width: 250px;
+}
+
+.legendRoot {
+  margin: 48px auto;
+  display: grid;
+  grid-template-columns: minmax(min-content, 250px) minmax(min-content, 250px);
+  grid-auto-flow: column;
+  justify-content: center;
+  align-items: center;
+  column-gap: 48px;
+}
+
+.card {
+  margin: 0;
+  background-color: var(--color-white);
+  padding: 24px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  height: 100%;
+  align-content: center;
+  color: var(--color-700);
+}
+
+h3 {
+  background-color: var(--color-white);
+  padding: 12px;
+  align-self: stretch;
+}

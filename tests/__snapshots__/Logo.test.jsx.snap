@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Logo component tests > renders a medium sized logo when no size is specified 1`] = `
+<div>
+  <div
+    class="_logoRoot_6dcafc"
+  >
+    <div
+      class="_logoText_6dcafc _medium_6dcafc"
+    >
+      every
+    </div>
+    <div
+      class="_logoText_6dcafc _medium_6dcafc"
+    >
+      thing
+    </div>
+    <div
+      class="_logoText_6dcafc _medium_6dcafc"
+    >
+      shop.
+    </div>
+    <div
+      class="_logoImage_6dcafc"
+    >
+      <svg
+        aria-hidden="true"
+        class="lucide lucide-handbag"
+        fill="none"
+        height="42"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="42"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M2.048 18.566A2 2 0 0 0 4 21h16a2 2 0 0 0 1.952-2.434l-2-9A2 2 0 0 0 18 8H6a2 2 0 0 0-1.952 1.566z"
+        />
+        <path
+          d="M8 11V6a4 4 0 0 1 8 0v5"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
