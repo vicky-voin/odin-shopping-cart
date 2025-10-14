@@ -1,9 +1,20 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Item Card component tests > renders an empty card when no data provided 1`] = `
+exports[`Item Card component tests > renders a skekelton card when no data provided 1`] = `
 <div>
   <div
     class="_cardRoot_68e5bf"
-  />
+  >
+    <div
+      class="_contentRoot_68e5bf _loading_68e5bf"
+    >
+      <h2
+        class="_title_68e5bf"
+      />
+      <div
+        class="_productImage_68e5bf"
+      />
+    </div>
+  </div>
 </div>
 `;

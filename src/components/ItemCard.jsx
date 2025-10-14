@@ -11,6 +11,13 @@ export default function ItemCard({ itemId, onCountUpdated, initialCount = 0 }) {
     onCountUpdated(itemId, value);
   }
 
+  const skeletonCard = (
+    <div className={`${styles.contentRoot} ${styles.loading}`}>
+      <h2 className={styles.title}></h2>
+      <div className={styles.productImage}></div>
+    </div>
+  );
+
   return (
     <div className={styles.cardRoot}>
       {data !== null && (
@@ -27,6 +34,7 @@ export default function ItemCard({ itemId, onCountUpdated, initialCount = 0 }) {
           <img className={styles.productImage} src={data.image}></img>
         </div>
       )}
+      {!isError && data === null && skeletonCard}
       {isError && (
         <div className={styles.errorContent}>Error: could not load item</div>
       )}

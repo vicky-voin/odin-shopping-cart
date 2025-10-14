@@ -48,3 +48,27 @@
   width: 200px;
   object-fit: contain;
 }
+
+.loading {
+  background-color: var(--color-white);
+}
+
+.loading > * {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-gray-200) 0%,
+    var(--color-gray-300) 50%,
+    var(--color-gray-400) 100%
+  );
+  background-size: 200% auto;
+  animation: shine 0.8s infinite alternate;
+}
+
+@keyframes shine {
+  from {
+    background-position: 0% center;
+  }
+  to {
+    background-position: 100% center;
+  }
+}

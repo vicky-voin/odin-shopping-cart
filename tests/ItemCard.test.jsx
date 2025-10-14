@@ -8,7 +8,7 @@ describe("Item Card component tests", () => {
     vi.clearAllMocks();
   });
 
-  it("renders an empty card when no data provided", () => {
+  it("renders a skekelton card when no data provided", () => {
     const { container } = render(<ItemCard></ItemCard>);
     expect(container).toMatchSnapshot();
   });
