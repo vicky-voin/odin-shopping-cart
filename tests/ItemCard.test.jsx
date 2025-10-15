@@ -33,6 +33,27 @@ describe("Item Card component tests", () => {
     expect(img).toHaveAttribute("src", data.imageUrl);
   });
 
+  it("renders a compact card when requested", async () => {
+    const data = getFakeData();
+    globalThis.fetch = vi.fn(() =>
+      Promise.resolve({
+        ok: true,
+        json: () => data,
+      })
+    );
+
+    render(<ItemCard isCompact={true}></ItemCard>);
+
+    const formattedPrice = formatInUSD(data.price);
+
+    await screen.findByText(data.title);
+    await screen.findByText(formattedPrice);
+    const img = await screen.findByRole("img");
+    expect(img).toHaveAttribute("src", data.imageUrl);
+
+    expect(screen.queryByText(data.description)).toBeNull();
+  });
+
   it("renders error message in card on error", async () => {
     globalThis.fetch = vi.fn(() =>
       Promise.resolve({

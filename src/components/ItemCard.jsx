@@ -3,7 +3,12 @@ import formatInUSD from "../utils/priceConverter";
 import Counter from "./Counter";
 import styles from "./ItemCard.module.css";
 
-export default function ItemCard({ itemId, onCountUpdated, initialCount = 0 }) {
+export default function ItemCard({
+  itemId,
+  onCountUpdated,
+  initialCount = 0,
+  isCompact = false,
+}) {
   const { data, isError } = useFetchProduct(itemId);
   const formattedPrice = formatInUSD(data == null ? "0.0" : data.price);
 
@@ -18,13 +23,21 @@ export default function ItemCard({ itemId, onCountUpdated, initialCount = 0 }) {
     </div>
   );
 
+  const rootClass = `${styles.cardRoot}${
+    isCompact ? ` ${styles.compact}` : ""
+  }`;
+
   return (
-    <div className={styles.cardRoot}>
+    <div className={rootClass}>
       {data !== null && (
         <div className={styles.contentRoot}>
-          <h2 className={styles.title}>{data.title}</h2>
-          <p className={styles.description}>{data.description}</p>
-          <h3 className={styles.price}>{formattedPrice}</h3>
+          <div className={styles.itemInfo}>
+            <h2 className={styles.title}>{data.title}</h2>
+            <h3 className={styles.price}>{formattedPrice}</h3>
+            {!isCompact && (
+              <p className={styles.description}>{data.description}</p>
+            )}
+          </div>
           <div className={styles.counter}>
             <Counter
               onValueChanged={(value) => handleCounterChange(value)}

@@ -32,14 +32,18 @@ export default function Cart() {
           handleCartUpdated(id, count);
         }}
         initialCount={product.quantity}
+        isCompact={true}
       ></ItemCard>
     );
   });
 
   return (
     <>
-      <div>{items}</div>
-      <PriceSummary subtotal={subtotal}></PriceSummary>
+      <h2>Your cart</h2>
+      <div className={styles.contentRoot}>
+        <div className={styles.itemsContainer}>{items}</div>
+        <PriceSummary subtotal={subtotal}></PriceSummary>
+      </div>
     </>
   );
 }

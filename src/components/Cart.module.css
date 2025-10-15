@@ -1,0 +1,8 @@
+.contentRoot {
+  display: grid;
+  grid-template-columns: auto 200px;
+  background-color: var(--color-white);
+}
+
+.itemsContainer {
+}
