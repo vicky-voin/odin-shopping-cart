@@ -2,35 +2,52 @@
 
 exports[`Price summary tests > renders 0 for prices if no items passed in 1`] = `
 <div>
-  <div>
-    <div>
+  <div
+    class="_summaryRoot_38632e"
+  >
+    <div
+      class="_entryLabel_38632e"
+      id="subtotal"
+    >
       Subtotal
     </div>
     <div
+      class="_valueLabel_38632e"
       data-testid="subtotalValue"
     >
       $0.00
     </div>
-    <div>
+    <div
+      class="_entryLabel_38632e"
+      id="shipping"
+    >
       Shipping
     </div>
     <div
+      class="_valueLabel_38632e"
       data-testid="shippingValue"
     >
       $0.00
     </div>
-    <div>
+    <div
+      class="_entryLabel_38632e"
+      id="tax"
+    >
       Tax
     </div>
     <div
+      class="_valueLabel_38632e"
       data-testid="taxValue"
     >
       $0.00
     </div>
-    <div>
+    <div
+      class="_entryLabel_38632e _totalLabel_38632e"
+    >
       Order total
     </div>
     <div
+      class="_valueLabel_38632e _totalLabel_38632e"
       data-testid="totalValue"
     >
       $0.00

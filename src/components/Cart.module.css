@@ -1,8 +1,27 @@
 .contentRoot {
   display: grid;
-  grid-template-columns: auto 200px;
+  grid-template-columns: auto 400px;
   background-color: var(--color-white);
+  padding: 24px 0px 64px 0px;
 }
 
 .itemsContainer {
+  padding: 24px;
+}
+
+.summaryContainer {
+  border: 1px solid var(--color-gray-300);
+  padding: 12px;
+  margin: 12px;
+  text-align: left;
+}
+
+hr {
+  background-color: var(--color-gray-300);
+  border: none;
+  height: 1px;
+}
+
+h3 {
+  margin: 0;
 }

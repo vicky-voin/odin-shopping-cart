@@ -1,0 +1,28 @@
+.summaryRoot {
+  margin: 12px;
+
+  display: grid;
+  grid-template-columns: auto max-content;
+}
+
+.entryLabel,
+.valueLabel {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.totalLabel {
+  margin-top: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.valueLabel {
+  text-align: right;
+  margin-top: 6px;
+}
+
+.totalLabel.valueLabel {
+  margin-top: 12px;
+}

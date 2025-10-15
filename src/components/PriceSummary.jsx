@@ -7,15 +7,34 @@ export default function PriceSummary({ subtotal }) {
   const total = subtotal + shipping + tax;
 
   return (
-    <div>
-      <div>Subtotal</div>
-      <div data-testid="subtotalValue">{formatPrice(subtotal)}</div>
-      <div>Shipping</div>
-      <div data-testid="shippingValue">{formatPrice(shipping)}</div>
-      <div>Tax</div>
-      <div data-testid="taxValue">{formatPrice(tax)}</div>
-      <div>Order total</div>
-      <div data-testid="totalValue">{formatPrice(total)}</div>
+    <div className={styles.summaryRoot}>
+      <div className={styles.entryLabel} id="subtotal">
+        Subtotal
+      </div>
+      <div data-testid="subtotalValue" className={styles.valueLabel}>
+        {formatPrice(subtotal)}
+      </div>
+      <div className={styles.entryLabel} id="shipping">
+        Shipping
+      </div>
+      <div data-testid="shippingValue" className={styles.valueLabel}>
+        {formatPrice(shipping)}
+      </div>
+      <div className={styles.entryLabel} id="tax">
+        Tax
+      </div>
+      <div data-testid="taxValue" className={styles.valueLabel}>
+        {formatPrice(tax)}
+      </div>
+      <div className={`${styles.entryLabel} ${styles.totalLabel}`}>
+        Order total
+      </div>
+      <div
+        data-testid="totalValue"
+        className={`${styles.valueLabel} ${styles.totalLabel}`}
+      >
+        {formatPrice(total)}
+      </div>
     </div>
   );
 }

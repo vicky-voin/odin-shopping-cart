@@ -25,15 +25,18 @@ export default function Cart() {
 
   const items = productsInCart.map((product) => {
     return (
-      <ItemCard
-        key={product.id}
-        itemId={product.id}
-        onCountUpdated={(id, count) => {
-          handleCartUpdated(id, count);
-        }}
-        initialCount={product.quantity}
-        isCompact={true}
-      ></ItemCard>
+      <>
+        <ItemCard
+          key={product.id}
+          itemId={product.id}
+          onCountUpdated={(id, count) => {
+            handleCartUpdated(id, count);
+          }}
+          initialCount={product.quantity}
+          isCompact={true}
+        ></ItemCard>
+        <hr></hr>
+      </>
     );
   });
 
@@ -42,7 +45,11 @@ export default function Cart() {
       <h2>Your cart</h2>
       <div className={styles.contentRoot}>
         <div className={styles.itemsContainer}>{items}</div>
-        <PriceSummary subtotal={subtotal}></PriceSummary>
+        <div className={styles.summaryContainer}>
+          <h3>Summary</h3>
+          <hr></hr>
+          <PriceSummary subtotal={subtotal}></PriceSummary>
+        </div>
       </div>
     </>
   );

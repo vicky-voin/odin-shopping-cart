@@ -8,7 +8,7 @@ describe("Price summary tests", () => {
     const { container } = render(<PriceSummary subtotal={0}></PriceSummary>);
     expect(container).toMatchSnapshot();
 
-    const defaultPrice = "$0.00";
+    const defaultPrice = formatInUSD(0.0);
 
     expect(screen.getByTestId("subtotalValue")).toHaveTextContent(defaultPrice);
     expect(screen.getByTestId("shippingValue")).toHaveTextContent(defaultPrice);
