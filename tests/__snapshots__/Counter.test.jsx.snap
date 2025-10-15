@@ -2,7 +2,9 @@
 
 exports[`Counter component tests > renders a counter with the default value 0 1`] = `
 <div>
-  <div>
+  <div
+    class="_counterRoot_4a361d"
+  >
     <button>
       -
     </button>

@@ -1,12 +1,26 @@
+.counterRoot {
+  display: flex;
+  align-items: center;
+}
+
 .inputValue {
-  width: 3ch;
   margin: 0 6px;
-  text-align: right;
+  padding: 0.3em 0.9em;
+  text-align: center;
   appearance: textfield;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  field-sizing: content;
 }
 
 .inputValue::-webkit-outer-spin-button,
 .inputValue::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+button {
+  font-size: 1.2rem;
+  padding: 0.3em 0.9em;
 }

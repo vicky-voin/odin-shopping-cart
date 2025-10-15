@@ -13,6 +13,19 @@
   text-decoration: none;
 }
 
+span {
+  color: var(--color-900);
+  font-weight: 800;
+}
+
 .active {
   color: var(--color-300);
+}
+
+.active span {
+  color: var(--color-300);
+}
+
+.root .navButton:last-child {
+  display: flex;
 }

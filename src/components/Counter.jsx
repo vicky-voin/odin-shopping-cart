@@ -50,7 +50,7 @@ export default function Counter({ onValueChanged, initialCount = 0 }) {
   }
 
   return (
-    <div>
+    <div className={styles.counterRoot}>
       <button onClick={decrementCount}>-</button>
       <input
         className={styles.inputValue}
