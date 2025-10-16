@@ -48,6 +48,36 @@ describe("Navigation integration", () => {
   });
 });
 
+describe("Shop integration", () => {
+  it("Item counts are preseved if navigated away", async () => {
+    const router = createMemoryRouter(routes);
+
+    render(<RouterProvider router={router}></RouterProvider>);
+
+    const shopButton = screen.getByTestId("shopNavLink");
+    const homeButton = screen.getByTestId("homeNavLink");
+
+    const user = userEvent.setup();
+    await user.click(shopButton);
+
+    const incrementButtons = await screen.findAllByRole("button", {
+      name: "+",
+    });
+
+    await user.click(incrementButtons[0]);
+
+    //Navigate away from Shop and back
+    await user.click(homeButton);
+    await user.click(shopButton);
+
+    await waitFor(async () => {
+      const counters = await screen.findAllByRole("spinbutton");
+      expect(counters.length).toBeGreaterThanOrEqual(1);
+      expect(counters[0]).toHaveValue(1);
+    });
+  });
+});
+
 describe("Cart integration", () => {
   it("Cart count in the header updates when an item count is incremented", async () => {
     const router = createMemoryRouter(routes);

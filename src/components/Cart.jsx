@@ -25,9 +25,8 @@ export default function Cart() {
 
   const items = productsInCart.map((product) => {
     return (
-      <>
+      <div key={product.id}>
         <ItemCard
-          key={product.id}
           itemId={product.id}
           onCountUpdated={(id, count) => {
             handleCartUpdated(id, count);
@@ -36,7 +35,7 @@ export default function Cart() {
           isCompact={true}
         ></ItemCard>
         <hr></hr>
-      </>
+      </div>
     );
   });
 
