@@ -40,17 +40,23 @@ export default function Cart() {
     );
   });
 
+  const isEmpty = items.length == 0;
+
   return (
     <>
       <h2>Your cart</h2>
-      <div className={styles.contentRoot}>
-        <div className={styles.itemsContainer}>{items}</div>
-        <div className={styles.summaryContainer}>
-          <h3>Summary</h3>
-          <hr></hr>
-          <PriceSummary subtotal={subtotal}></PriceSummary>
+      {isEmpty ? (
+        <h3 className={styles.emptyCart}>No items in your cart</h3>
+      ) : (
+        <div className={styles.contentRoot}>
+          <div className={styles.itemsContainer}>{items}</div>
+          <div className={styles.summaryContainer}>
+            <h3>Summary</h3>
+            <hr></hr>
+            <PriceSummary subtotal={subtotal}></PriceSummary>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }

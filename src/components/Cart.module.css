@@ -25,3 +25,11 @@ hr {
 h3 {
   margin: 0;
 }
+
+h3.emptyCart {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
