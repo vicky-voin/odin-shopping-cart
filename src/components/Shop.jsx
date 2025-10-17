@@ -1,5 +1,6 @@
 import { useOutletContext } from "react-router";
 import ItemCard from "./ItemCard";
+import styles from "./Shop.module.css";
 
 export default function Shop() {
   const { shopData, handleCartUpdated } = useOutletContext();
@@ -19,5 +20,5 @@ export default function Shop() {
     );
   });
 
-  return <>{items}</>;
+  return <div className={styles.itemsList}>{items}</div>;
 }

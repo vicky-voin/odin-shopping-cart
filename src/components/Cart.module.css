@@ -1,8 +1,9 @@
 .contentRoot {
   display: grid;
-  grid-template-columns: auto 400px;
+  grid-template-columns: minmax(150px, 40vw) minmax(200px, 30vw);
   background-color: var(--color-white);
   padding: 24px 0px 64px 0px;
+  justify-content: center;
 }
 
 .itemsContainer {

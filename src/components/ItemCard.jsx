@@ -31,6 +31,7 @@ export default function ItemCard({
     <div className={rootClass}>
       {data !== null && (
         <div className={styles.contentRoot}>
+          <img className={styles.productImage} src={data.image}></img>
           <div className={styles.itemInfo}>
             <h2 className={styles.title}>{data.title}</h2>
             <h3 className={styles.price}>{formattedPrice}</h3>
@@ -44,7 +45,6 @@ export default function ItemCard({
               initialCount={initialCount}
             ></Counter>
           </div>
-          <img className={styles.productImage} src={data.image}></img>
         </div>
       )}
       {!isError && data === null && skeletonCard}
