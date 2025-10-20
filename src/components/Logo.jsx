@@ -6,11 +6,11 @@ export default function Logo({ size }) {
   const textClass = size === "large" ? styles.large : styles.medium;
 
   return (
-    <div className={styles.logoRoot}>
+    <div aria-label="Store logo" className={styles.logoRoot}>
       <div className={`${styles.logoText} ${textClass}`}>every</div>
       <div className={`${styles.logoText} ${textClass}`}>thing</div>
       <div className={`${styles.logoText} ${textClass}`}>shop.</div>
-      <div className={styles.logoImage}>
+      <div aria-hidden={true} className={styles.logoImage}>
         <Handbag size={logoSize}></Handbag>
       </div>
     </div>

@@ -31,7 +31,11 @@ export default function ItemCard({
     <div className={rootClass}>
       {data !== null && (
         <div className={styles.contentRoot}>
-          <img className={styles.productImage} src={data.image}></img>
+          <img
+            className={styles.productImage}
+            src={data.image}
+            alt={data.title}
+          ></img>
           <div className={styles.itemInfo}>
             <h2 className={styles.title}>{data.title}</h2>
             <h3 className={styles.price}>{formattedPrice}</h3>

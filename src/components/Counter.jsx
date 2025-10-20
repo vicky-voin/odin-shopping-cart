@@ -53,6 +53,7 @@ export default function Counter({ onValueChanged, initialCount = 0 }) {
     <div className={styles.counterRoot}>
       <button onClick={decrementCount}>-</button>
       <input
+        aria-label="quantity"
         className={styles.inputValue}
         type="number"
         value={count}

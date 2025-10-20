@@ -20,7 +20,12 @@ export default function Navigation({ cartData }) {
       <NavLink className={getNavLinkClass} data-testid="shopNavLink" to="/shop">
         Shop
       </NavLink>
-      <NavLink className={getNavLinkClass} data-testid="cartNavLink" to="/cart">
+      <NavLink
+        aria-label={`Cart, total count ${totalCount}`}
+        className={getNavLinkClass}
+        data-testid="cartNavLink"
+        to="/cart"
+      >
         <ShoppingCart></ShoppingCart>
         <span data-testid="cartTotalCount">{totalCount}</span>
       </NavLink>

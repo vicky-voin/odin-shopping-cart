@@ -34,10 +34,10 @@ function App() {
 
   return (
     <>
-      <div className="header">
+      <header className="header">
         <Logo></Logo>
         <Navigation cartData={cartData}></Navigation>
-      </div>
+      </header>
       <div className="content">
         <Outlet context={shopContext}></Outlet>
       </div>

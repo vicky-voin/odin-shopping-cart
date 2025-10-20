@@ -3,6 +3,7 @@
 exports[`Logo component tests > renders a medium sized logo when no size is specified 1`] = `
 <div>
   <div
+    aria-label="Store logo"
     class="_logoRoot_6dcafc"
   >
     <div
@@ -21,6 +22,7 @@ exports[`Logo component tests > renders a medium sized logo when no size is spec
       shop.
     </div>
     <div
+      aria-hidden="true"
       class="_logoImage_6dcafc"
     >
       <svg

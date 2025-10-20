@@ -23,6 +23,7 @@ exports[`Navigation component tests > renders navigation links 1`] = `
       Shop
     </a>
     <a
+      aria-label="Cart, total count 0"
       class="_navButton_b30331"
       data-discover="true"
       data-testid="cartNavLink"
