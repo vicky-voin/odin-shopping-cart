@@ -1,6 +1,5 @@
 .contentRoot {
   display: grid;
-  grid-template-columns: minmax(150px, 40vw) minmax(200px, 30vw);
   background-color: var(--color-white);
   padding: 24px 0px 64px 0px;
   justify-content: center;
@@ -33,4 +32,14 @@ h3.emptyCart {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .contentRoot {
+    grid-template-columns: minmax(150px, 40vw) minmax(200px, 30vw);
+  }
+
+  .itemsContainer {
+    align-items: center;
+  }
 }

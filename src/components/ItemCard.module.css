@@ -121,6 +121,10 @@
     row-gap: 12px;
   }
 
+  .cardRoot {
+    justify-content: center;
+  }
+
   .productImage {
     height: 100px;
   }
